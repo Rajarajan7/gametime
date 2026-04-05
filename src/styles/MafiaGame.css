@@ -1,0 +1,815 @@
+/* ==================== VARIABLES & BASE STYLES ==================== */
+
+:root {
+  --primary-color: #8b2e2e;
+  --secondary-color: #4a4a4a;
+  --success-color: #27ae60;
+  --danger-color: #e74c3c;
+  --info-color: #3498db;
+  --warning-color: #f39c12;
+  --light-bg: #ecf0f1;
+  --dark-bg: #2c3e50;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --border-color: #bdc3c7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+/* ==================== HEADER ==================== */
+
+.mafia-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mafia-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.mafia-header .subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ==================== SETUP SECTION ==================== */
+
+.setup-section {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.setup-section h2 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(139, 46, 46, 0.3);
+}
+
+.names-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.name-input {
+  width: 100%;
+}
+
+/* ==================== ROLE SELECTION ==================== */
+
+.role-selection {
+  margin-top: 25px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  background: var(--light-bg);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.checkbox-item:hover {
+  background: #d5dbdb;
+  border-color: var(--primary-color);
+}
+
+.checkbox-item input[type="checkbox"] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.checkbox-item label {
+  cursor: pointer;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.role-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.role-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: normal;
+}
+
+/* ==================== ERROR CONTAINER ==================== */
+
+.error-container {
+  background: #fadbd8;
+  border-left: 4px solid var(--danger-color);
+  color: #c0392b;
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.error-container ul {
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.error-container li {
+  margin: 6px 0;
+}
+
+/* ==================== BUTTONS ==================== */
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(139, 46, 46, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--text-secondary);
+  color: white;
+  margin-top: 20px;
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* ==================== GAMEPLAY SECTION ==================== */
+
+.gameplay-section {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== PHASE CONTAINER ==================== */
+
+.phase-container {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.phase-title {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.phase-description {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+/* ==================== PLAYERS DISPLAY ==================== */
+
+.players-display {
+  background: var(--light-bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.players-display h4 {
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.player-badge,
+.player-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.player-badge:hover,
+.player-card:hover {
+  transform: translateY(-4px);
+}
+
+.player-badge.eliminated,
+.player-card.dead {
+  opacity: 0.6;
+  text-decoration: line-through;
+  background: var(--secondary-color);
+}
+
+.player-badge-name,
+.player-card-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.player-badge-role,
+.player-card-role {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.player-card-status {
+  font-size: 0.8rem;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ==================== ACTIONS CONTAINER ==================== */
+
+.actions-container {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.action-section {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.action-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.action-section h4 {
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.action-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.action-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.action-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(139, 46, 46, 0.2);
+}
+
+/* ==================== GAME LOG ==================== */
+
+.game-log {
+  background: #d4edda;
+  border: 2px solid var(--success-color);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.game-log h4 {
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.log-messages {
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.log-message {
+  padding: 8px;
+  margin: 5px 0;
+  background: #f8f9fa;
+  border-left: 4px solid var(--success-color);
+  font-size: 0.95rem;
+  border-radius: 3px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ==================== ANGEL SAVED INFO ==================== */
+
+.angel-saved-info {
+  background: #d4edda;
+  border: 2px solid var(--success-color);
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.angel-saved-info h4 {
+  color: var(--success-color);
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.angel-saved-info p {
+  margin: 0;
+  color: #155724;
+  font-size: 0.95rem;
+}
+
+/* ==================== RESULTS ==================== */
+
+.results-container {
+  background: linear-gradient(135deg, var(--success-color), #229954);
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.results-container.loss {
+  background: linear-gradient(135deg, var(--danger-color), #c0392b);
+}
+
+.results-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.results-message {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.results-content {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.final-players,
+.game-statistics {
+  margin-bottom: 25px;
+}
+
+.final-players h3,
+.game-statistics h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+
+.stats-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.stats-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+}
+
+.stats-list li:last-child {
+  border-bottom: none;
+}
+
+.stats-list strong {
+  display: inline-block;
+  min-width: 200px;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .mafia-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .mafia-header .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .setup-section,
+  .gameplay-section {
+    padding: 20px 15px;
+    margin: 15px auto;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .names-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .players-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .phase-title {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .results-container {
+    padding: 20px;
+  }
+
+  .results-title {
+    font-size: 1.5rem;
+  }
+
+  .results-content {
+    padding: 15px;
+  }
+
+  .stats-list strong {
+    display: block;
+    min-width: auto;
+    margin-bottom: 4px;
+  }
+
+  .stats-list li {
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .mafia-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .mafia-header {
+    padding: 15px 10px;
+  }
+
+  .setup-section,
+  .gameplay-section {
+    padding: 15px 10px;
+    margin: 10px auto;
+    border-radius: 0;
+  }
+
+  .form-group input[type="number"],
+  .form-group input[type="text"],
+  .form-group select {
+    font-size: 16px;
+  }
+
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .names-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .phase-title {
+    font-size: 1.1rem;
+  }
+
+  .phase-description {
+    font-size: 0.95rem;
+  }
+
+  .action-section h4 {
+    font-size: 0.95rem;
+  }
+
+  .log-messages {
+    max-height: 150px;
+    font-size: 0.85rem;
+  }
+
+  .results-container {
+    padding: 15px;
+  }
+
+  .results-title {
+    font-size: 1.3rem;
+  }
+
+  .results-message {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==================== ROLE REVEAL ==================== */
+
+.role-reveal-container {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in;
+}
+
+.role-reveal-container h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.role-reveal-subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.role-reveal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.role-reveal-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-reveal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.role-reveal-emoji {
+  font-size: 2.5rem;
+}
+
+.role-reveal-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.role-reveal-role {
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.role-reveal-description {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.role-reveal-legend {
+  background: var(--light-bg);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 2px solid var(--border-color);
+}
+
+.role-reveal-legend h3 {
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.legend-item {
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.legend-item.mafia-team {
+  background: #fadbd8;
+  border-left: 4px solid var(--danger-color);
+  color: #c0392b;
+}
+
+.legend-item.village-team {
+  background: #d4edda;
+  border-left: 4px solid var(--success-color);
+  color: #155724;
+}
+
+/* Mobile Responsive - Role Reveal */
+
+@media (max-width: 768px) {
+  .role-reveal-container {
+    padding: 20px 15px;
+  }
+
+  .role-reveal-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .role-reveal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .role-reveal-card {
+    padding: 15px;
+  }
+
+  .role-reveal-emoji {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-reveal-container {
+    padding: 15px 10px;
+    margin: 10px auto;
+  }
+
+  .role-reveal-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .role-reveal-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .role-reveal-card {
+    padding: 12px;
+  }
+
+  .role-reveal-emoji {
+    font-size: 1.8rem;
+  }
+
+  .role-reveal-name {
+    font-size: 0.95rem;
+  }
+
+  .role-reveal-description {
+    font-size: 0.8rem;
+  }
+
+  .legend-grid {
+    grid-template-columns: 1fr;
+  }
+}
