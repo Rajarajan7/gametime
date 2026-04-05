@@ -20,8 +20,12 @@ const Setup = ({ onStartGame }) => {
   }, [playerCount]);
 
   const handlePlayerCountChange = (e) => {
-    const count = parseInt(e.target.value) || 5;
-    setPlayerCount(Math.min(15, Math.max(5, count)));
+    const count = parseInt(e.target.value) || '';
+    if (count === '') {
+      setPlayerCount('');
+    } else if (count > 0) {
+      setPlayerCount(count);
+    }
   };
 
   const handleNameChange = (index, value) => {
@@ -44,6 +48,10 @@ const Setup = ({ onStartGame }) => {
   const validateInputs = () => {
     const newErrors = [];
     const filledNames = playerNames.filter(n => n.trim());
+
+    if (playerCount < 5) {
+      newErrors.push('Minimum 5 players required');
+    }
 
     if (filledNames.length !== playerCount) {
       newErrors.push(`You entered ${filledNames.length} names but specified ${playerCount} players`);
@@ -112,14 +120,13 @@ const Setup = ({ onStartGame }) => {
       <h2>Game Setup</h2>
 
       <div className="form-group">
-        <label htmlFor="playerCount">Number of Players (5-15):</label>
+        <label htmlFor="playerCount">Number of Players:</label>
         <input
           id="playerCount"
-          type="number"
-          min="5"
-          max="15"
+          type="text"
           value={playerCount}
           onChange={handlePlayerCountChange}
+          placeholder="Enter number of players"
         />
       </div>
 
