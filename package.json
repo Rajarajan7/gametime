@@ -16,6 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "npm run build && powershell -Command \"Remove-Item -Path './docs' -Recurse -Force -ErrorAction SilentlyContinue; Copy-Item -Path './build/*' -Destination './docs' -Recurse -Force\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
